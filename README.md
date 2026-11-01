@@ -48,14 +48,4 @@ I developed this portfolio to showcase my technical skills, academic projects, c
 
 I plan to continue improving this portfolio by adding new projects, refining the user experience, and exploring more interactive features.
 
-## 👩‍💻 Author
-
-**Isurika Bandara**
-
-Computer Science with Artificial Intelligence Undergraduate | NIBM
-
-- GitHub: https://github.com/bandaraisurika8-wq
-
----
-
 ⭐ Thank you for visiting my portfolio!

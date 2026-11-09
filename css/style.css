@@ -2371,3 +2371,26 @@ button {
         z-index: 3;
     }
 }
+
+/* BIGGER PORTRAIT ON MOBILE ONLY */
+
+@media (max-width: 768px) {
+
+    .portrait-container {
+        width: 100% !important;
+        max-width: 480px !important;
+
+        height: 55svh !important;
+        max-height: 550px !important;
+
+        margin: 5px auto 0 !important;
+    }
+
+    .portrait {
+        width: 100% !important;
+        height: 100% !important;
+
+        object-fit: contain;
+        object-position: center bottom;
+    }
+}

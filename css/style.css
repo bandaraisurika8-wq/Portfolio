@@ -1999,3 +1999,210 @@ button {
         grid-template-columns: 1fr;
     }
 }
+
+/* HIGH-QUALITY REALISTIC PORTRAIT */
+
+.portrait {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+    image-rendering: auto;
+
+    /* Natural depth */
+    filter: drop-shadow(
+        0 15px 25px rgba(0, 0, 0, 0.25)
+    );
+
+    /* Gentle floating movement */
+    animation: portraitLive 6s ease-in-out infinite;
+
+    transform-origin: center bottom;
+}
+
+/* Subtle live movement */
+@keyframes portraitLive {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .portrait {
+        animation: none;
+    }
+}
+
+/* FIX PORTRAIT SIZE AND POSITION */
+
+.portrait-container {
+    position: absolute;
+    left: 50%;
+    top: auto;
+    bottom: 0;
+
+    width: 38%;
+    max-width: 520px;
+    height: 78vh;
+    max-height: 700px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    z-index: 2;
+}
+
+.portrait {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center bottom;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    transform: none;
+    animation: none;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .portrait-container {
+        width: 80%;
+        max-width: 380px;
+        height: 55vh;
+    }
+}
+
+/* ==================================
+   MAGICAL PORTRAIT ENTRANCE
+================================== */
+
+.portrait-container {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+
+    width: 47%;
+    max-width: 520px;
+    height: 90vh;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    isolation: isolate;
+    z-index: 2;
+}
+
+/* Purple magical glow */
+
+.portrait-container::before {
+    content: "";
+    position: absolute;
+
+    width: 110%;
+    height: 85%;
+    bottom: 5%;
+
+    background: radial-gradient(
+        ellipse,
+        rgba(155, 90, 255, 0.45) 0%,
+        rgba(120, 50, 220, 0.18) 45%,
+        transparent 75%
+    );
+
+    filter: blur(35px);
+    z-index: -1;
+
+    opacity: 0;
+    animation: magicGlow 2.8s ease-out forwards;
+}
+
+/* Portrait entrance */
+
+.portrait {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center bottom;
+
+    opacity: 0;
+
+    animation: magicAppear 2.4s
+               cubic-bezier(0.22, 1, 0.36, 1)
+               0.2s forwards;
+}
+
+/* Magical appearance animation */
+
+@keyframes magicAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(80px) scale(0.85);
+        filter: blur(15px) brightness(1.5);
+    }
+
+    50% {
+        opacity: 0.85;
+        filter: blur(4px) brightness(1.15);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0) brightness(1);
+    }
+}
+
+/* Glow animation */
+
+@keyframes magicGlow {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    45% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+    100% {
+        opacity: 0.4;
+        transform: scale(1);
+    }
+}
+
+/* Mobile view */
+
+@media (max-width: 768px) {
+    .portrait-container {
+        width: 75%;
+        max-width: 380px;
+        height: 55vh;
+    }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    .portrait,
+    .portrait-container::before {
+        animation: none;
+        opacity: 1;
+    }
+}
